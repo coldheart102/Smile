@@ -38,21 +38,21 @@ Statement st;
         scaleImage();
     }
 public void scaleImage2(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\lenov_000\\Desktop\\Project Management 5th year Final\\BACTONG COMP SHOP\\BACTONG COMP SHOP\\papers.co-vl87-abstract-blue-cube-pattern-36-3840x2400-4k-wallpaper.jpg");
+        ImageIcon icon = (ImageIcon) jLabel1.getIcon();
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(jLabel1.getWidth(),jLabel1.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         jLabel1.setIcon(scaledIcon);
     }
     public void scaleImage(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\lenov_000\\Desktop\\Project Management 5th year Final\\BACTONG COMP SHOP\\BACTONG COMP SHOP\\logo1.png");
+        ImageIcon icon = (ImageIcon) jLabel3.getIcon();
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(jLabel3.getWidth(),jLabel3.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         jLabel3.setIcon(scaledIcon);
     }
 public void scaleImage1(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\lenov_000\\Desktop\\Project Management 5th year Final\\BACTONG COMP SHOP\\BACTONG COMP SHOP\\222026_preview.png");
+        ImageIcon icon = (ImageIcon) create.getIcon();
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(cancel.getWidth(),cancel.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
@@ -94,6 +94,8 @@ public void scaleImage1(){
         jLabel2.setForeground(new java.awt.Color(204, 255, 255));
         jLabel2.setText("Register Account");
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BACTONG COMP SHOP/BACTONG COMP SHOP/logo1.png"))); // NOI18N
+
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 255, 255));
         jLabel4.setText("Username:");
@@ -117,7 +119,6 @@ public void scaleImage1(){
         compname.setCaretColor(new java.awt.Color(0, 51, 255));
 
         cancel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        cancel.setForeground(new java.awt.Color(204, 255, 255));
         cancel.setText("Cancel");
         cancel.setContentAreaFilled(false);
         cancel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -128,7 +129,6 @@ public void scaleImage1(){
         });
 
         reset.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        reset.setForeground(new java.awt.Color(204, 255, 255));
         reset.setText("Reset");
         reset.setContentAreaFilled(false);
         reset.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -139,7 +139,7 @@ public void scaleImage1(){
         });
 
         create.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        create.setForeground(new java.awt.Color(204, 255, 255));
+        create.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BACTONG COMP SHOP/BACTONG COMP SHOP/222026_preview.png"))); // NOI18N
         create.setText("Create");
         create.setContentAreaFilled(false);
         create.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -229,6 +229,8 @@ public void scaleImage1(){
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(160, 30, 420, 290);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BACTONG COMP SHOP/BACTONG COMP SHOP/papers.co-vl87-abstract-blue-cube-pattern-36-3840x2400-4k-wallpaper.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 760, 370);
 
@@ -271,7 +273,7 @@ public void scaleImage1(){
         if (user != null && pass.equals(repass)){
             try{
                 conn = DriverManager.getConnection("jdbc:derby://localhost:1527/bactong","bactong","bactong");
-                st = (Statement)conn.createStatement();
+                st = conn.createStatement();
                 st.executeUpdate("INSERT INTO BACTONG.LOGIN (USERNAME, PASSWORD, CNAME) VALUES ('"+user+"','"+pass+"','"+cname+"')");
                 st.executeUpdate("INSERT INTO BACTONG.EXP (USERNAME) VALUES ('"+user+"')");
                 st.executeUpdate("INSERT INTO BACTONG.SETUP (USERNAME) VALUES ('"+user+"')");

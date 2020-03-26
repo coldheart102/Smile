@@ -42,14 +42,14 @@ Statement st;
         scaleImage4();
     }
     public void scaleImage2(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\lenov_000\\Desktop\\Project Management 5th year Final\\BACTONG COMP SHOP\\BACTONG COMP SHOP\\240_F_282980424_InJLdo8nrNJnxqyFy4pfIKSUOdMUIFcQ.jpg");
+        ImageIcon icon = (ImageIcon) jLabel5.getIcon();
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(jLabel5.getWidth(),jLabel5.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         jLabel5.setIcon(scaledIcon);
     }
     public void scaleImage1(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\lenov_000\\Desktop\\Project Management 5th year Final\\BACTONG COMP SHOP\\BACTONG COMP SHOP\\222026_preview.png");
+        ImageIcon icon = (ImageIcon) login.getIcon();
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(login.getWidth(),login.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
@@ -57,21 +57,21 @@ Statement st;
         register.setIcon(scaledIcon);
     }
     public void scaleImage(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\lenov_000\\Desktop\\Project Management 5th year Final\\BACTONG COMP SHOP\\BACTONG COMP SHOP\\logo1.png");
+        ImageIcon icon = (ImageIcon) jLabel4.getIcon();
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(jLabel4.getWidth(),jLabel4.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         jLabel4.setIcon(scaledIcon);
     }
     public void scaleImage3(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\lenov_000\\Desktop\\Project Management 5th year Final\\BACTONG COMP SHOP\\BACTONG COMP SHOP\\lens-flare-transparent-png-4.png");
+        ImageIcon icon = (ImageIcon) jLabel6.getIcon();
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(jLabel6.getWidth(),jLabel6.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         jLabel6.setIcon(scaledIcon);
     }
     public void scaleImage4(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\lenov_000\\Desktop\\Project Management 5th year Final\\BACTONG COMP SHOP\\BACTONG COMP SHOP\\lens-flare-transparent-png-2.png");
+        ImageIcon icon = (ImageIcon) jLabel7.getIcon();
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(jLabel7.getWidth(),jLabel7.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
@@ -122,7 +122,6 @@ Statement st;
         jLabel2.setText("Password:");
 
         register.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        register.setForeground(new java.awt.Color(204, 255, 255));
         register.setText("Register");
         register.setContentAreaFilled(false);
         register.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -133,7 +132,7 @@ Statement st;
         });
 
         login.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        login.setForeground(new java.awt.Color(204, 255, 255));
+        login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BACTONG COMP SHOP/BACTONG COMP SHOP/222026_preview.png"))); // NOI18N
         login.setText("Login");
         login.setContentAreaFilled(false);
         login.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -160,20 +159,16 @@ Statement st;
         username.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         username.setOpaque(false);
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BACTONG COMP SHOP/BACTONG COMP SHOP/logo1.png"))); // NOI18N
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BACTONG COMP SHOP/BACTONG COMP SHOP/lens-flare-transparent-png-4.png"))); // NOI18N
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BACTONG COMP SHOP/BACTONG COMP SHOP/lens-flare-transparent-png-2.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(42, 42, 42))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -193,14 +188,24 @@ Statement st;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(50, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(42, 42, 42))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addGap(27, 27, 27)
@@ -215,11 +220,13 @@ Statement st;
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(register, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(180, 60, 350, 270);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BACTONG COMP SHOP/BACTONG COMP SHOP/240_F_282980424_InJLdo8nrNJnxqyFy4pfIKSUOdMUIFcQ.jpg"))); // NOI18N
         jPanel1.add(jLabel5);
         jLabel5.setBounds(0, -2, 710, 380);
 
@@ -253,7 +260,7 @@ Statement st;
         try{
             int lag = 1;
             conn = DriverManager.getConnection("jdbc:derby://localhost:1527/bactong","bactong","bactong");
-            st = (Statement)conn.createStatement();
+            st = conn.createStatement();
             rs = st.executeQuery("SELECT * FROM BACTONG.LOGIN");
             while(rs.next()){
                 if (rs.getString(1).equals(user)&& rs.getString(2).equals(pass)){

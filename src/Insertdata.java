@@ -42,7 +42,7 @@ Statement st;
         jPanel2.setBackground(new Color(0,0,0,150));
     }
     public void scaleImage1(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\lenov_000\\Desktop\\Project Management 5th year Final\\BACTONG COMP SHOP\\BACTONG COMP SHOP\\222026_preview.png");
+        ImageIcon icon = (ImageIcon) remove.getIcon();
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(add.getWidth(),add.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
@@ -54,7 +54,7 @@ Statement st;
         cancel.setIcon(scaledIcon);
     }
     public void scaleImage(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\lenov_000\\Desktop\\Project Management 5th year Final\\BACTONG COMP SHOP\\BACTONG COMP SHOP\\Galaxy_Glass_Indigo_MOW-HD.jpg");
+        ImageIcon icon = (ImageIcon) jLabel1.getIcon();
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(jLabel1.getWidth(),jLabel1.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
@@ -113,7 +113,6 @@ Statement st;
         datapc.setBounds(690, 70, 120, 17);
 
         reset.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        reset.setForeground(new java.awt.Color(204, 255, 255));
         reset.setText("Reset");
         reset.setContentAreaFilled(false);
         reset.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -142,7 +141,6 @@ Statement st;
         cdn.setBounds(620, 110, 70, 25);
 
         preview.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        preview.setForeground(new java.awt.Color(204, 255, 255));
         preview.setText("Preview");
         preview.setContentAreaFilled(false);
         preview.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -174,7 +172,7 @@ Statement st;
         sleep.setBounds(490, 30, 60, 25);
 
         remove.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        remove.setForeground(new java.awt.Color(204, 255, 255));
+        remove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BACTONG COMP SHOP/BACTONG COMP SHOP/222026_preview.png"))); // NOI18N
         remove.setText("Remove");
         remove.setContentAreaFilled(false);
         remove.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -199,7 +197,6 @@ Statement st;
         shutdown.setBounds(550, 30, 90, 25);
 
         cancel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        cancel.setForeground(new java.awt.Color(204, 255, 255));
         cancel.setText("Cancel");
         cancel.setContentAreaFilled(false);
         cancel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -212,7 +209,6 @@ Statement st;
         cancel.setBounds(520, 240, 80, 30);
 
         add.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        add.setForeground(new java.awt.Color(204, 255, 255));
         add.setText("Add");
         add.setContentAreaFilled(false);
         add.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -233,7 +229,6 @@ Statement st;
         jLabel4.setBounds(430, 150, 180, 17);
 
         update.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        update.setForeground(new java.awt.Color(204, 255, 255));
         update.setText("Update");
         update.setContentAreaFilled(false);
         update.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -288,6 +283,8 @@ Statement st;
         jLabel13.setText("Username:");
         jPanel1.add(jLabel13);
         jLabel13.setBounds(10, 330, 60, 20);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BACTONG COMP SHOP/BACTONG COMP SHOP/Galaxy_Glass_Indigo_MOW-HD.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 820, 360);
 
@@ -341,7 +338,7 @@ Statement st;
         String power;
         try{
             conn = DriverManager.getConnection("jdbc:derby://localhost:1527/bactong","bactong","bactong");
-            st = (Statement)conn.createStatement();
+            st = conn.createStatement();
             rs = st.executeQuery("SELECT * FROM BACTONG.DATAS"+user+" WHERE CALENDAR = '"+date+"' AND USERNAME = '"+user+"'");
             while(rs.next()){
                 power = rs.getString(3);
@@ -395,7 +392,7 @@ Statement st;
         String user = account.getText();
         try{
                 conn = DriverManager.getConnection("jdbc:derby://localhost:1527/bactong","bactong","bactong");
-                st = (Statement)conn.createStatement();
+                st = conn.createStatement();
         rs = st.executeQuery("SELECT * FROM BACTONG.SETUP WHERE USERNAME = '"+user+"'");
             while(rs.next()){
                 comp = rs.getInt(2);
@@ -415,7 +412,7 @@ Statement st;
         if (cdvalue >= 0 && pcvalue >= 0 && next == 1){
             try{
                 conn = DriverManager.getConnection("jdbc:derby://localhost:1527/bactong","bactong","bactong");
-                st = (Statement)conn.createStatement();
+                st = conn.createStatement();
                 st.executeUpdate("INSERT INTO BACTONG.DATAS"+user+" (CALENDAR, USERNAME, SWITCH, NUMBERUSED, TOTALHOURS, OPENHOURS) VALUES ('"+date+"', '"+user+"',"+power+","+pcvalue+","+cdvalue+","+open+")");
                 final JPanel panel = new JPanel();
                 JOptionPane.showMessageDialog(panel,"Data Registered","Database Notice", JOptionPane.INFORMATION_MESSAGE);
@@ -451,7 +448,7 @@ Statement st;
         }
         String user = account.getText();try{
                 conn = DriverManager.getConnection("jdbc:derby://localhost:1527/bactong","bactong","bactong");
-                st = (Statement)conn.createStatement();
+                st = conn.createStatement();
         rs = st.executeQuery("SELECT * FROM BACTONG.SETUP WHERE USERNAME = '"+user+"'");
             while(rs.next()){
                 comp = rs.getInt(2);
@@ -471,7 +468,7 @@ Statement st;
         if (cdvalue >= 0 && pcvalue >= 0 && next == 1){
             try{
                 conn = DriverManager.getConnection("jdbc:derby://localhost:1527/bactong","bactong","bactong");
-                st = (Statement)conn.createStatement();
+                st = conn.createStatement();
                 st.executeUpdate("UPDATE BACTONG.DATAS"+user+" SET SWITCH = "+power+", NUMBERUSED = "+pcvalue+", TOTALHOURS = "+cdvalue+" , OPENHOURS = "+open+" WHERE CALENDAR = '"+date+"' AND USERNAME = '"+user+"'");
                 final JPanel panel = new JPanel();
                 JOptionPane.showMessageDialog(panel,"Database Table Updated","Database Notice", JOptionPane.INFORMATION_MESSAGE);
@@ -495,7 +492,7 @@ Statement st;
         String user = account.getText();
             try{
                 conn = DriverManager.getConnection("jdbc:derby://localhost:1527/bactong","bactong","bactong");
-                st = (Statement)conn.createStatement();
+                st = conn.createStatement();
                 st.executeUpdate("DELETE FROM BACTONG.DATAS"+user+" WHERE CALENDAR = '"+date+"' AND USERNAME = '"+user+"'");
                 final JPanel panel = new JPanel();
                 JOptionPane.showMessageDialog(panel,"Database Table Removed","Database Notice", JOptionPane.INFORMATION_MESSAGE);

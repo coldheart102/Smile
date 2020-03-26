@@ -47,21 +47,21 @@ Statement st;
         account.setText(para);
     }
 public void scaleImage2(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\lenov_000\\Desktop\\Project Management 5th year Final\\BACTONG COMP SHOP\\BACTONG COMP SHOP\\papers.co-vl87-abstract-blue-cube-pattern-36-3840x2400-4k-wallpaper.jpg");
+        ImageIcon icon = (ImageIcon) jLabel1.getIcon();
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(jLabel1.getWidth(),jLabel1.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         jLabel1.setIcon(scaledIcon);
     }
     public void scaleImage(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\lenov_000\\Desktop\\Project Management 5th year Final\\BACTONG COMP SHOP\\BACTONG COMP SHOP\\logo1.png");
+        ImageIcon icon = (ImageIcon) jLabel3.getIcon();
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(jLabel3.getWidth(),jLabel3.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
         jLabel3.setIcon(scaledIcon);
     }
 public void scaleImage1(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\lenov_000\\Desktop\\Project Management 5th year Final\\BACTONG COMP SHOP\\BACTONG COMP SHOP\\222026_preview.png");
+        ImageIcon icon = (ImageIcon) cancel.getIcon();
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(cancel.getWidth(),cancel.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
@@ -100,6 +100,8 @@ public void scaleImage1(){
         jLabel2.setForeground(new java.awt.Color(204, 255, 255));
         jLabel2.setText("Update Account");
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BACTONG COMP SHOP/BACTONG COMP SHOP/logo1.png"))); // NOI18N
+
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(204, 255, 255));
         jLabel5.setText("New Password:");
@@ -116,7 +118,7 @@ public void scaleImage1(){
         compname.setCaretColor(new java.awt.Color(0, 51, 255));
 
         cancel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        cancel.setForeground(new java.awt.Color(204, 255, 255));
+        cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BACTONG COMP SHOP/BACTONG COMP SHOP/222026_preview.png"))); // NOI18N
         cancel.setText("Cancel");
         cancel.setContentAreaFilled(false);
         cancel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -127,7 +129,6 @@ public void scaleImage1(){
         });
 
         reset.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        reset.setForeground(new java.awt.Color(204, 255, 255));
         reset.setText("Reset");
         reset.setContentAreaFilled(false);
         reset.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -138,7 +139,6 @@ public void scaleImage1(){
         });
 
         create.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        create.setForeground(new java.awt.Color(204, 255, 255));
         create.setText("Update");
         create.setContentAreaFilled(false);
         create.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -239,6 +239,9 @@ public void scaleImage1(){
                 .addGap(25, 25, 25))
         );
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BACTONG COMP SHOP/BACTONG COMP SHOP/papers.co-vl87-abstract-blue-cube-pattern-36-3840x2400-4k-wallpaper.jpg"))); // NOI18N
+        jLabel1.setFocusable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -248,7 +251,7 @@ public void scaleImage1(){
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(165, 165, 165))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,7 +260,7 @@ public void scaleImage1(){
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(47, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -288,7 +291,7 @@ public void scaleImage1(){
         if (user != null && pass.equals(repass)){
             try{
                 conn = DriverManager.getConnection("jdbc:derby://localhost:1527/bactong","bactong","bactong");
-                st = (Statement)conn.createStatement();
+                st = conn.createStatement();
                 st.executeUpdate("UPDATE BACTONG.LOGIN SET PASSWORD = '"+pass+"', CNAME = '"+cname+"' WHERE USERNAME = '"+user+"'");
                 final JPanel panel = new JPanel();
                 JOptionPane.showMessageDialog(panel,"Account Registered","Registration Notice", JOptionPane.INFORMATION_MESSAGE);

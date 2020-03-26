@@ -61,7 +61,7 @@ int stringWidth = totalin.getFontMetrics(labelFont).stringWidth(labelText);
 int componentWidth = totalin.getWidth();
 
 // Find out how much the font can grow in width.
-double widthRatio = (double)componentWidth / (double)stringWidth;
+double widthRatio = componentWidth / (double)stringWidth;
 
 int newFontSize = (int)(labelFont.getSize() * widthRatio);
 int componentHeight = totalin.getHeight();
@@ -79,7 +79,7 @@ int stringWidth = totalex.getFontMetrics(labelFont).stringWidth(labelText);
 int componentWidth = totalex.getWidth();
 
 // Find out how much the font can grow in width.
-double widthRatio = (double)componentWidth / (double)stringWidth;
+double widthRatio = componentWidth / (double)stringWidth;
 
 int newFontSize = (int)(labelFont.getSize() * widthRatio);
 int componentHeight = totalex.getHeight();
@@ -97,7 +97,7 @@ int stringWidth = totalprof.getFontMetrics(labelFont).stringWidth(labelText);
 int componentWidth = totalprof.getWidth();
 
 // Find out how much the font can grow in width.
-double widthRatio = (double)componentWidth / (double)stringWidth;
+double widthRatio = componentWidth / (double)stringWidth;
 
 int newFontSize = (int)(labelFont.getSize() * widthRatio);
 int componentHeight = totalprof.getHeight();
@@ -113,7 +113,7 @@ public void computername(){
     String user = account.getText();
         try{
             conn = DriverManager.getConnection("jdbc:derby://localhost:1527/bactong","bactong","bactong");
-            st = (Statement)conn.createStatement();
+            st = conn.createStatement();
             rs = st.executeQuery("SELECT * FROM BACTONG.LOGIN WHERE USERNAME = '"+user+"'");
             while(rs.next()){
                 shopname.setText(rs.getString(3));
@@ -123,7 +123,7 @@ int stringWidth = shopname.getFontMetrics(labelFont).stringWidth(labelText);
 int componentWidth = shopname.getWidth();
 
 // Find out how much the font can grow in width.
-double widthRatio = (double)componentWidth / (double)stringWidth;
+double widthRatio = componentWidth / (double)stringWidth;
 
 int newFontSize = (int)(labelFont.getSize() * widthRatio);
 int componentHeight = shopname.getHeight();
@@ -143,7 +143,7 @@ shopname.setFont(new Font(labelFont.getName(), Font.PLAIN, fontSizeToUse));
                     }
 }
 public void scaleImage(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\lenov_000\\Desktop\\Project Management 5th year Final\\BACTONG COMP SHOP\\BACTONG COMP SHOP\\3.jpg");
+        ImageIcon icon = (ImageIcon) jLabel7.getIcon();
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(jLabel7.getWidth(),jLabel7.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
@@ -151,7 +151,7 @@ public void scaleImage(){
    
     }
 public void scaleImage1(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\lenov_000\\Desktop\\Project Management 5th year Final\\BACTONG COMP SHOP\\BACTONG COMP SHOP\\222026_preview.png");
+        ImageIcon icon = (ImageIcon) logout.getIcon();
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(setup.getWidth(),setup.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
@@ -160,7 +160,7 @@ public void scaleImage1(){
         logout.setIcon(scaledIcon);
     }
     public void scaleImage2(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\lenov_000\\Desktop\\Project Management 5th year Final\\BACTONG COMP SHOP\\BACTONG COMP SHOP\\logo1.png");
+        ImageIcon icon = (ImageIcon) jLabel2.getIcon();
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(jLabel2.getWidth(),jLabel2.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
@@ -252,11 +252,13 @@ public void scaleImage1(){
         setup.setBounds(20, 110, 90, 30);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BACTONG COMP SHOP/BACTONG COMP SHOP/logo1.png"))); // NOI18N
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel2);
         jLabel2.setBounds(0, 10, 130, 90);
 
         logout.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BACTONG COMP SHOP/BACTONG COMP SHOP/222026_preview.png"))); // NOI18N
         logout.setText("Logout");
         logout.setBorderPainted(false);
         logout.setContentAreaFilled(false);
@@ -392,6 +394,8 @@ public void scaleImage1(){
 
         jPanel2.add(jPanel3);
         jPanel3.setBounds(220, 20, 510, 410);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BACTONG COMP SHOP/BACTONG COMP SHOP/3.jpg"))); // NOI18N
         jPanel2.add(jLabel7);
         jLabel7.setBounds(0, 0, 800, 470);
 
@@ -467,7 +471,7 @@ public void scaleImage1(){
         float loop = 0, subtax = 0, shot = 0, server = 0, busi = 0,staf = 0,room = 0, tprofit = 0, trentex = 0, tbun = 0, inte = 0,comp = 0, tax = 0, staff = 0, tota = 0,pric = 0,aver = 0,elec = 0, slee = 0, clue = 0,net = 0, tauto = 0, rent = 0;
         int years = 1, months = 1;
         try{
-            st = (Statement)conn.createStatement();
+            st = conn.createStatement();
             rs = st.executeQuery("SELECT * FROM BACTONG.EXP WHERE USERNAME = '"+user+"'");
             while(rs.next()){
                 elec = rs.getInt(2);
@@ -558,7 +562,7 @@ public void scaleImage1(){
                 tax = 1*busi;
             }
             else {
-                tax = busi*((int)(submonth / 12));
+                tax = busi*(submonth / 12);
             }
             staff = staf * (tauto);
             rent = room * submonth;
@@ -571,19 +575,19 @@ public void scaleImage1(){
             tauto = 1;
             }
         }
-        rentex3 = (float) ((((open3*comp)*aver)/1000)*elec); //totalex
+        rentex3 = ((((open3*comp)*aver)/1000)*elec); //totalex
         profit3 = (thour3 - rentex3); //totalprof
         bun3 = (thour3); //totalin
-        rentex2 = (float) ((((thour2/pric)*aver)/1000)*elec); //totalex
+        rentex2 = ((((thour2/pric)*aver)/1000)*elec); //totalex
         profit2 = (thour2 - rentex2); //totalprof
         bun2 = (thour2); //totalin
         if(auto1 != 0){
         sleepex1 = ((((open1 - ((thour1/pric)/comp)) * slee)/1000)*elec);
-        rentex1 = (float) (((((thour1/pric)*aver)/1000)*elec)+sleepex1); //totalex
+        rentex1 = (((((thour1/pric)*aver)/1000)*elec)+sleepex1); //totalex
         profit1 =(int) (thour1 - rentex1); //totalprof
         bun1 = (thour1); //totalin
         }
-        server = (float) (((((open3+open2+open1)*comp)*aver)/1000)*elec); //totalex
+        server = (((((open3+open2+open1)*comp)*aver)/1000)*elec); //totalex
         tbun = (bun1+bun2+bun3);//final income
         trentex = ((rentex1+rentex2+rentex3)+(tax+net+rent+staff+(server*tota)));//final expenses
         totalin.setText("₱ "+tbun);//bun1+bun2+bun3

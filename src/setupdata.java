@@ -43,7 +43,7 @@ Statement st;
         int elec1 = 0,inte1 = 0,busi1 = 0,staf1 = 0,room1 = 0;
         try{
             conn = DriverManager.getConnection("jdbc:derby://localhost:1527/bactong","bactong","bactong");
-            st = (Statement)conn.createStatement();
+            st = conn.createStatement();
             rs = st.executeQuery("SELECT * FROM BACTONG.EXP WHERE USERNAME = '"+user+"'");
             while(rs.next()){
                 elec1 = rs.getInt(2);
@@ -66,7 +66,7 @@ Statement st;
                     }
     }
 public void scaleImage(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\lenov_000\\Desktop\\Project Management 5th year Final\\BACTONG COMP SHOP\\BACTONG COMP SHOP\\istockphoto-1166329039-170667a.jpg");
+        ImageIcon icon = (ImageIcon) jLabel1.getIcon();
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(jLabel1.getWidth(),jLabel1.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
@@ -74,7 +74,7 @@ public void scaleImage(){
    
     }
 public void scaleImage1(){
-        ImageIcon icon = new ImageIcon("C:\\Users\\lenov_000\\Desktop\\Project Management 5th year Final\\BACTONG COMP SHOP\\BACTONG COMP SHOP\\222026_preview.png");
+        ImageIcon icon = (ImageIcon) apply.getIcon();
         Image img = icon.getImage();
         Image imgScale = img.getScaledInstance(apply.getWidth(),apply.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(imgScale);
@@ -124,7 +124,6 @@ public void scaleImage1(){
         jPanel2.setLayout(null);
 
         reset.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        reset.setForeground(new java.awt.Color(204, 255, 255));
         reset.setText("Reset");
         reset.setContentAreaFilled(false);
         reset.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -137,7 +136,7 @@ public void scaleImage1(){
         reset.setBounds(80, 220, 80, 30);
 
         apply.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        apply.setForeground(new java.awt.Color(204, 255, 255));
+        apply.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BACTONG COMP SHOP/BACTONG COMP SHOP/222026_preview.png"))); // NOI18N
         apply.setText("Apply");
         apply.setContentAreaFilled(false);
         apply.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -166,7 +165,6 @@ public void scaleImage1(){
         room.setBounds(220, 180, 90, 25);
 
         cancel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        cancel.setForeground(new java.awt.Color(204, 255, 255));
         cancel.setText("Cancel");
         cancel.setContentAreaFilled(false);
         cancel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -257,6 +255,8 @@ public void scaleImage1(){
         account.setForeground(new java.awt.Color(204, 255, 255));
         jPanel1.add(account);
         account.setBounds(60, 290, 210, 20);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BACTONG COMP SHOP/BACTONG COMP SHOP/istockphoto-1166329039-170667a.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 480, 320);
 
@@ -294,7 +294,7 @@ public void scaleImage1(){
         if (electricity != null && internet != null && business != null && staff != null && rent != null){
             try{
                 conn = DriverManager.getConnection("jdbc:derby://localhost:1527/bactong","bactong","bactong");
-                st = (Statement)conn.createStatement();
+                st = conn.createStatement();
                 st.executeUpdate("UPDATE BACTONG.EXP SET ELECTRICITY = "+electricity+", INTERNET = "+internet+", BUSINESSTAX = "+business+", STAFFPAYMENT = "+staff+", ROOMRENTPAYMENT = "+rent+" WHERE USERNAME = '"+user+"'");
                 final JPanel panel = new JPanel();
                 JOptionPane.showMessageDialog(panel,"Shop Expenses Registered","Shop Expenses Notice", JOptionPane.INFORMATION_MESSAGE);
